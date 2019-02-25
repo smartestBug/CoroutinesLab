@@ -10,6 +10,8 @@ import dev.msemyak.coroutineslab.R
 import dev.msemyak.coroutineslab.data.model.Country
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
+import org.koin.android.scope.ext.android.bindScope
+import org.koin.android.scope.ext.android.getOrCreateScope
 
 
 class MainActivity : AppCompatActivity(), MainContract.View {
@@ -21,6 +23,8 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        bindScope(getOrCreateScope("activity"))
 
         btnLoad.setOnClickListener {
             tvLoad.visibility = View.INVISIBLE

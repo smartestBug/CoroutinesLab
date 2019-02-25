@@ -10,5 +10,5 @@ val networkModule = module {
 }
 
 val presenterModule = module {
-    single { MainPresenter(get()) }
+    scope("activity") { MainPresenter(get()) }
 }
